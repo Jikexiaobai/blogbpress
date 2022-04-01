@@ -1,0 +1,46 @@
+# HTTP Server
+[server]
+	Address     = ":8199"
+	ServerRoot  = "./public"
+	ServerAgent = "fiber"
+	LogPath     = "./log/server"
+	DumpRouterMap = false
+# Logger.
+[logger]
+    Path        = "./log/server"
+    Level       = "all"
+    Stdout      = true
+
+# Database.
+[database]
+    link  = "mysql:root:eforinaj@tcp(127.0.0.1:3306)/fiber"
+    debug = true
+    [database.logger]
+        Path   = "./log/sql"
+        Level  = "all"
+        Stdout = true
+
+# Redis数据库配置
+[redis]
+    default = "127.0.0.1:6379,0,xxxx?idleTimeout=600"
+
+
+# elastic数据库配置
+[elastic]
+    Address = "http://127.0.0.1:9200"
+
+#jwt配置
+[gToken]
+    CacheMode = 2
+    CacheKey = "GToken:"
+    Timeout = 0
+    MaxRefresh = 0
+    TokenDelimiter="_"
+    EncryptKey = "koi29a83idakguqjq29asd9asd8a7jhq"
+    AuthFailMsg = "登录超时，请重新登录"
+    MultiLogin = true
+
+#system配置
+[system]
+IsDemo = true
+
